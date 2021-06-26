@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "post_title": "Welcome to the TechTok!",
+        "post_body": "If you are reading this, then you too are someone who is interested in the facinating world of technology. Feel free to post about any technology news or topics that you fancy. Users may also comment on your posts, so put on your social hat!",
+        "user_id": 1
+    },
+    {
+        "id": 2,
+        "post_title": "Oh and dont forget...",
+        "post_body": "tehcnology is an ever-expanding topic, so the more you post, the more we all learn. Put your heads together and we all will grow!",
+        "user_id": 1
+    },
+    {
+        "id": 3,
+        "post_title": "You should be careful",
+        "post_body": "your site name is awefully close to another platform's name that is a little bit bigger than yours. Please do not let big tok bring down the lawsuit hammer on u.",
+        "user_id": 2
+    }
+]
