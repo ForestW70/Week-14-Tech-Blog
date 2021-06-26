@@ -4,22 +4,18 @@ const withAuth = require('../utils/auth');
 
 
 // log-in, sign up routes
-router.get('/', withAuth, async (req, res) => {
-  try {
-    // Get all users, sorted by name
-    const userData = await User.findAll({
-      attributes: { exclude: ['password'] },
-      order: [['name', 'ASC']],
-    });
-
-    // Serialize user data so templates can read it
-    const users = userData.map((project) => project.get({ plain: true }));
-
-    // Pass serialized data into Handlebars.js template
-    res.render('homepage', { users });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+router.get('/', (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/user-dash');
+        return;
+    }
+    
+    res.redirect('/welcome');
+    
 });
+
+router.get('/welcome', withAuth, (req, res) => {
+    res.render('login');
+})
 
 module.exports = router;

@@ -1,0 +1,39 @@
+body {
+    background-color: rgb(208, 255, 208);
+
+}
+
+header {
+    background-color: rgb(27, 23, 23);
+    color: #fff;
+}
+
+.head-text {
+    text-align: center;
+    font-size: 8em;
+    margin: 0;
+}
+
+ul {
+    text-align: center;
+}
+
+
+.nav-list li {
+    text-decoration: none;
+    display: inline;
+    font-size: 2em;
+    padding: 0 10px;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: #ffff
+}
+
+article {
+    border: black solid 2px;
+    width: 30%;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
