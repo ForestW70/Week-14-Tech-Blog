@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Tech Blog</title>
+</head>
+
+<body>
+
+    <header>
+        <h2 class="head-text">TechTok</h2>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="" id="goToUserHome">home</a></li>
+                <li><a href="" id="goToBlog">blog</a></li>
+                <li><a href="" id="login">log in</a></li>
+
+                {{#if logged_in}}
+                <li><a href="" id="logout">log out</a></li>
+                {{/if}}
+            </ul>
+        </nav>
+    </header>
+  
+    <main class="meat">
+        {{{ body }}}
+    </main>
+
+</body>
+
+<script src="./js/navigator.js"></script>
+<script src="./js/login.js"></script>
+
+{{#if logged_in}}
+  <script src="./js/logout.js"></script>
+{{/if}}
+
+</html>
