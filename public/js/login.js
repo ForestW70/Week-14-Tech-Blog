@@ -38,6 +38,7 @@ const createUserFormHandler = async (event) => {
         alert("Passwords do not match. Please try again.");
     }
 
+
     try {
         const res = await fetch('/api/users/' + username);
         if (res.status === 404) {
