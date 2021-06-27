@@ -5,17 +5,19 @@ const withAuth = require('../utils/auth');
 
 // log-in, sign up routes
 router.get('/', (req, res) => {
-    if (req.session.logged_in) {
-        res.redirect('/user-dash');
-        return;
-    }
-    
-    res.redirect('/welcome');
-    
+    res.redirect('/home');
 });
 
-router.get('/welcome', withAuth, (req, res) => {
+router.get('/home', (req, res) => {
+    res.render('homepage');
+})
+
+router.get('/login', (req, res) => {
     res.render('login');
+})
+
+router.get('/user-dash', (req, res) => {
+    res.render('user-dash');
 })
 
 module.exports = router;

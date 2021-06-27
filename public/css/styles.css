@@ -37,3 +37,36 @@ article {
     padding-bottom: 20px;
     margin-bottom: 20px;
 }
+
+#blog-posts {
+    border: rgb(35, 70, 35) solid 1px;
+    background-color: rgb(35, 70, 35);
+    margin: 10px 30px;
+    border-radius: 2px
+}
+
+.post {
+    margin: 10px 30px;
+}
+
+.post-head {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 20px;
+    color: #fff;
+}
+
+.title {
+    font-size: 30px;
+}
+
+.post-info {
+    font-style: italic;
+}
+
+.post-body {
+    margin: 15px 20px;
+    background-color: rgb(208, 255, 208);
+    padding: 30px;
+    border-radius: 5px;
+}
