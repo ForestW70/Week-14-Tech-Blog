@@ -8,16 +8,53 @@ router.get('/', (req, res) => {
     res.redirect('/home');
 });
 
-router.get('/home', (req, res) => {
-    res.render('homepage');
-})
-
 router.get('/login', (req, res) => {
     res.render('login');
 })
 
+router.get('/home', async (req, res) => {
+    
+    try {
+        const allPosts = await BlogPost.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ['username'],
+                },
+            ],
+            order: [['id', 'DESC']]
+        });
+
+        let blogPosts = allPosts.map((post) => 
+            post.get({ plain: true })
+        )
+        blogPosts.forEach(async (post) => {
+            let authorData = await User.findOne({
+                where: {
+                    id: post.user_id
+                }
+            });
+            author = authorData.get({ plain: true });
+            post.author = author.username;
+
+        })
+        // res.status(200).json(blogPosts)
+        res.render('homepage', { blogPosts });
+    } catch (err) {
+        res.status(400).json(err);
+    }
+
+
+
+
+
+
+
+})
+
+
 router.get('/user-dash', async (req, res) => {
-   
+
 
     try {
         const userData = await BlogPost.findAll({
@@ -30,7 +67,7 @@ router.get('/user-dash', async (req, res) => {
                 }
             ]
         });
-        
+
         const userPosts = userData.map(posts => {
             posts.get({ plain: true })
         })

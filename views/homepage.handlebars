@@ -1,17 +1,19 @@
 <div>
+    {{#each blogPosts as |post|}}
     <section id="blog-posts">
         <div class="post">
             <div class="post-head">
-                <span class="title">Blog post title</span>
-                <span class="post-info">post by forest, 10PM</span>
+                <span class="title">{{post.post_title}}</span>
+                <span class="post-info">Global post #{{post.id}} by {{post.author}}</span>
             </div>
             <div>
                 <p class="post-body">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima, distinctio assumenda provident illum exercitationem reprehenderit qui voluptate, iure vero eaque dicta modi velit eius eligendi! Officiis, praesentium. Aliquid, commodi ex?
+                    {{post.post_body}}
                 </p>
             </div>
         </div>
     </section>
+    {{/each}}
 
     <section id="blog-posts">
         <div class="post">

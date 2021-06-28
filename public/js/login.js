@@ -16,11 +16,10 @@ const loginFormHandler = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
 
-        if (response.ok) {
-            document.location.replace('/home');
-        } else {
-            alert('Failed to log in');
-        }
+        // if (!response.ok) {
+        //     alert('Failed to log in');  
+        // } 
+
     } catch (err) {
         console.log(err);
         alert('something went wrong!');
@@ -48,11 +47,10 @@ const createUserFormHandler = async (event) => {
                 headers: { 'Content-Type': 'application/json' },
             })
 
-            if (newUserRes.ok) {
-                document.location.replace('/home');
-            } else {
-                alert('Failed to sign up! Make sure password has 8 or more characters!');
-            }
+            // if (!newUserRes.ok) {
+            //     alert('Failed to sign up! Make sure password has 8 or more characters!');   
+            // } 
+
         } else {
             alert('Username already exists. Please try again.');
         }

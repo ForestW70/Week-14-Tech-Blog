@@ -37,10 +37,10 @@ router.post('/login', async (req, res) => {
         });
 
         res.status(200).json("logged in!");
-        res.render('user-dash', { username: userData.username })
+        res.render('homepage', { username: userData.username });
+        
 
     } catch (err) {
-        console.log(err);
         res.status(400).json(err);
     }
 });
@@ -54,8 +54,11 @@ router.post('/add', async (req, res) => {
             req.session.username = userData.username;
             req.session.logged_in = true;
 
-            res.status(200).json(userData);
         });
+
+        res.status(200).json("account created!");
+        res.render('homepage', { username: userData.username });
+
     } catch (err) {
         res.status(400).json(err);
     }
