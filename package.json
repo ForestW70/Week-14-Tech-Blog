@@ -29,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/ForestW70/hw14techblog/issues"
   },
-  "homepage": "https://github.com/ForestW70/hw14techblog#readme"
+  "homepage": "https://github.com/ForestW70/hw14techblog#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }

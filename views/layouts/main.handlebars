@@ -15,12 +15,18 @@
         <h2 class="head-text">TechTok</h2>
         <nav>
             <ul class="nav-list">
-                <li><a href="" id="goToUserHome">home</a></li>
-                <li><a href="" id="goToBlog">blog</a></li>
-                <li><a href="" id="goToLogin">log in</a></li>
+                <li><a href="" id="goToUserHome">Dashboard</a></li>
+                <li><a href="" id="goToBlog">Home</a></li>
+
+                {{!-- {{#if !logged_in}}
+                <li><a href="" id="goToLogin">Log in</a></li>
+                {{/if}} --}}
 
                 {{#if logged_in}}
+                <li>Logged in as {{username}}</li>
                 <li><a href="" id="logout">log out</a></li>
+                {{else}}
+                <li><a href="" id="goToLogin">Log in</a></li>
                 {{/if}}
             </ul>
         </nav>
@@ -33,7 +39,7 @@
 </body>
 
 <script src="./js/navigator.js"></script>
-{{!-- <script src="./js/login.js"></script> --}}
+
 
 {{#if logged_in}}
   <script src="./js/logout.js"></script>

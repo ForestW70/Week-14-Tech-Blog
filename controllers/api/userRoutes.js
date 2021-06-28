@@ -34,12 +34,10 @@ router.post('/login', async (req, res) => {
             req.session.user_id = userData.id;
             req.session.username = userData.username;
             req.session.logged_in = true;
-
-            res
-                .status(200)
-                .json({ user: userData, message: 'You are now logged in!' });
-            return;
         });
+
+        res.status(200).json("logged in!");
+        res.render('user-dash', { username: userData.username })
 
     } catch (err) {
         console.log(err);
@@ -102,13 +100,7 @@ router.post('/logout', (req, res) => {
 
 
 router.get('/', async (req, res) => {
-    // const userData = await User.findAll();
-    // if (userData) {
-    //     res.status(200).json(userData);
-    // } else {
-    //     res.status(500);
-    // }
-
+    
     res.status(200).json("BBBBBBBBB");
 });
 

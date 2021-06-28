@@ -1,1 +1,19 @@
-<h2>DING</h2>
+<div>
+    <h3>Welcome {{username}}, here are your recent posts!</h3>
+    
+    {{#each userPosts as |post|}}
+    <section id="blog-posts">
+        <div class="post">
+            <div class="post-head">
+                <span class="title">{{post.post_title}}</span>
+                <span class="post-info">post by {{username}}</span>
+            </div>
+            <div>
+                <p class="post-body">
+                    {{post.post_body}}
+                </p>
+            </div>
+        </div>
+    </section>
+    {{/each}}
+</div>

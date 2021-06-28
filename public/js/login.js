@@ -17,7 +17,7 @@ const loginFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/user-dash');
+            document.location.replace('/home');
         } else {
             alert('Failed to log in');
         }
@@ -49,7 +49,7 @@ const createUserFormHandler = async (event) => {
             })
 
             if (newUserRes.ok) {
-                document.location.replace('/user-dash');
+                document.location.replace('/home');
             } else {
                 alert('Failed to sign up! Make sure password has 8 or more characters!');
             }
