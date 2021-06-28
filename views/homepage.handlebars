@@ -1,4 +1,8 @@
 <div>
+    {{#if logged_in}}
+    <h2>{{username}}... Have you caught up on these recent posts?</h2>
+    {{/if}}
+    
     {{#each blogPosts as |post|}}
     <section id="blog-posts">
         <div class="post">

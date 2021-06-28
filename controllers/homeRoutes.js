@@ -38,8 +38,11 @@ router.get('/home', async (req, res) => {
             post.author = author.username;
 
         })
-        // res.status(200).json(blogPosts)
-        res.render('homepage', { blogPosts });
+        if (!req.session.logged_in) {
+            res.render('homepage', { blogPosts });
+        } else {
+            res.render('homepage', { blogPosts, username: req.session.username, logged_in: req.session.logged_in })
+        }
     } catch (err) {
         res.status(400).json(err);
     }
@@ -53,8 +56,7 @@ router.get('/home', async (req, res) => {
 })
 
 
-router.get('/user-dash', async (req, res) => {
-
+router.get('/user-dash', withAuth, async (req, res) => {
 
     try {
         const userData = await BlogPost.findAll({
@@ -71,7 +73,7 @@ router.get('/user-dash', async (req, res) => {
         const userPosts = userData.map(posts => {
             posts.get({ plain: true })
         })
-        res.render('user-dash')
+        res.render('user-dash', {userPosts, logged_in: req.session.logged_in })
 
     } catch (err) {
         throw new Error(err);
