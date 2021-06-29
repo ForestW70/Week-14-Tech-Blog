@@ -45,7 +45,7 @@ router.post('/login', async (req, res) => {
         //     res.json({ user, message: 'You are now logged in!' });
         // });
 
-        res.json(req.session.logged_in);
+        
         res.render('homepage', { username: user.username, logged_in: true });
 
 
@@ -58,15 +58,16 @@ router.post('/add', async (req, res) => {
     try {
         const userData = await User.create(req.body);
 
-        req.session.save(() => {
+        
+        if (!req.session.initialised) {
+            req.session.initialised = true;
             req.session.user_id = userData.id;
             req.session.username = userData.username;
             req.session.logged_in = true;
-
-        });
+        }
 
         res.status(200).json("account created!");
-        res.render('homepage', { username: userData.username });
+        res.render('homepage', { username: req.session.username, logged_in: true });
 
     } catch (err) {
         res.status(400).json(err);

@@ -38,6 +38,7 @@ const createUserFormHandler = async (event) => {
 
     if (!password === passConfirm) {
         alert("Passwords do not match. Please try again.");
+        return;
     }
 
 
@@ -50,9 +51,11 @@ const createUserFormHandler = async (event) => {
                 headers: { 'Content-Type': 'application/json' },
             })
 
-            // if (!newUserRes.ok) {
-            //     alert('Failed to sign up! Make sure password has 8 or more characters!');   
-            // } 
+            if (newUserRes.ok) {
+                document.location.replace('/home');
+            } else {
+                alert('Failed to sign up! Make sure password has 8 or more characters!');   
+            }
 
         } else {
             alert('Username already exists. Please try again.');
