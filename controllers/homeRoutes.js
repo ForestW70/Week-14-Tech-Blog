@@ -25,7 +25,7 @@ router.get('/home', async (req, res) => {
             order: [['id', 'DESC']]
         });
 
-        let blogPosts = allPosts.map((post) => 
+        const blogPosts = allPosts.map((post) => 
             post.get({ plain: true })
         )
         blogPosts.forEach(async (post) => {
@@ -47,16 +47,10 @@ router.get('/home', async (req, res) => {
         res.status(400).json(err);
     }
 
-
-
-
-
-
-
 })
 
 
-router.get('/user-dash', withAuth, async (req, res) => {
+router.get('/user-dash', async (req, res) => {
 
     try {
         const userData = await BlogPost.findAll({
@@ -64,19 +58,20 @@ router.get('/user-dash', withAuth, async (req, res) => {
                 {
                     model: User,
                     where: {
-                        user_id: req.session.user_id
+                        id: req.session.user_id
                     }
                 }
             ]
         });
 
-        const userPosts = userData.map(posts => {
+        const userPosts = userData.map(posts => 
             posts.get({ plain: true })
-        })
-        res.render('user-dash', {userPosts, logged_in: req.session.logged_in })
+        )
+        // res.status(200).json(userPosts)
+        res.render('user-dash', {userPosts, username: req.session.username, logged_in: req.session.logged_in })
 
     } catch (err) {
-        throw new Error(err);
+        res.status(500).json(err)
     }
 })
 

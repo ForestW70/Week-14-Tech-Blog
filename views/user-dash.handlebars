@@ -1,12 +1,13 @@
 <div>
-    <h3>Welcome {{username}}, here are your recent posts!</h3>
+    <h2 class="greeting">Welcome {{username}}, here are your recent posts!</h3>
+    <button class="new-post-btn">+ New post</button>
     
     {{#each userPosts as |post|}}
     <section id="blog-posts">
         <div class="post">
             <div class="post-head">
                 <span class="title">{{post.post_title}}</span>
-                <span class="post-info">post by {{username}}</span>
+                <span class="post-info">posted on {{post.date_created}}</span>
             </div>
             <div>
                 <p class="post-body">

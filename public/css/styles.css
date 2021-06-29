@@ -22,6 +22,23 @@ ul {
     text-align: center;
 }
 
+.greeting {
+    font-style: italic;
+    margin: 30px;
+    color:rgb(72 78 75);
+    border-bottom: 7px double grey;
+    font-family: sans-serif;
+    display: inline-block;
+}
+
+.new-post-btn {
+    display: inline;
+    float: right;
+    margin: 10px 30px;
+    padding: 20px;
+    font-size: 1rem;
+    background-color: aliceblue;
+}
 
 .nav-el {
     text-decoration: none;
