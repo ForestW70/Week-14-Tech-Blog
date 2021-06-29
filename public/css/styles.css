@@ -1,3 +1,7 @@
+.hide {
+    display: none;
+}
+
 body {
     background-color: rgb(208, 255, 208);
 
@@ -19,7 +23,7 @@ ul {
 }
 
 
-.nav-list li {
+.nav-el {
     text-decoration: none;
     display: inline;
     font-size: 2em;
@@ -70,3 +74,5 @@ article {
     padding: 30px;
     border-radius: 5px;
 }
+
+

@@ -16,14 +16,15 @@
         <h2 class="head-text">TechTok</h2>
         <nav>
             <ul class="nav-list">
-                <li><a href="" id="goToUserHome">Dashboard</a></li>
-                <li><a href="" id="goToBlog">Home</a></li>
+                <li class="nav-el"><a href="" id="goToUserHome">Dashboard</a></li>
+                <li class="nav-el"><a href="" id="goToBlog">Home</a></li>
 
 
                 {{#if logged_in}}
-                <li><a href="" id="logout">log out</a></li>
+                <li class="hide"><a href="" id="goToLogin">Log in</a></li>
+                <li class="nav-el"><a href="" id="logout">log out</a></li>
                 {{else}}
-                <li><a href="" id="goToLogin">Log in</a></li>
+                <li class="nav-el"><a href="" id="goToLogin">Log in</a></li>
                 {{/if}}
             </ul>
         </nav>
