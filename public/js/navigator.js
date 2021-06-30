@@ -34,7 +34,20 @@ const goToUserHome = async () => {
     }
 }
 
+const goToCreatePost = async () => {
+    const request = await fetch('/create-post', {
+        method: 'GET',
+        headers: {}
+    });
+    if (request.ok) {
+        document.location.replace('/create-post');
+    } else {
+        alert(response.statusText);
+    }
+}
+
 
 document.getElementById('goToLogin').addEventListener('click', goToLoginScreen);
 document.getElementById('goToBlog').addEventListener('click', goToBlog);
 document.getElementById('goToUserHome').addEventListener('click', goToUserHome);
+document.getElementById('goToCreatePost').addEventListener('click', goToCreatePost)

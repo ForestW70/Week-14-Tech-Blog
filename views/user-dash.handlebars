@@ -1,6 +1,5 @@
 <div>
     <h2 class="greeting">Welcome {{username}}, here are your recent posts!</h3>
-    <button class="new-post-btn">+ New post</button>
     
     {{#each userPosts as |post|}}
     <section id="blog-posts">
@@ -18,3 +17,5 @@
     </section>
     {{/each}}
 </div>
+
+<script src="./js/newPost.js"></script>

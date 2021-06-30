@@ -50,7 +50,7 @@ router.get('/home', async (req, res) => {
 })
 
 
-router.get('/user-dash', async (req, res) => {
+router.get('/user-dash', withAuth, async (req, res) => {
 
     try {
         const userData = await BlogPost.findAll({
@@ -73,6 +73,10 @@ router.get('/user-dash', async (req, res) => {
     } catch (err) {
         res.status(500).json(err)
     }
+})
+
+router.get('/create-post', withAuth, async(req, res) => {
+    res.render('create-post', {username: req.session.username, logged_in: req.session.logged_in});
 })
 
 module.exports = router;

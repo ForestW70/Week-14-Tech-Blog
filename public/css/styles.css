@@ -31,13 +31,36 @@ ul {
     display: inline-block;
 }
 
-.new-post-btn {
-    display: inline;
-    float: right;
-    margin: 10px 30px;
-    padding: 20px;
-    font-size: 1rem;
+.new-post {
+    background-color: honeydew;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 25px;
+}
+
+.new-post label {
+    color: rgb(72 78 75);
+}
+
+.new-post label, .new-post input, .new-post textarea {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    font-size: 25px;
+}
+
+.new-post-top {
+    padding-top: 25px;
+}
+
+#new-post-btn {
     background-color: aliceblue;
+    width: 100%;
+    border: 1px solid navajowhite;
+    height: 40px;
+    margin-top: 20px;
+    font-style: italic;
+    color: #716565;
 }
 
 .nav-el {
