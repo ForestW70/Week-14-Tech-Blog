@@ -4,7 +4,7 @@
     {{/if}}
 
     {{#each blogPosts as |post|}}
-    <section id="blog-posts">
+    <section class="blog-posts">
         <div class="post">
             <div class="post-head">
                 <span class="title">{{post.post_title}}</span>
@@ -16,7 +16,11 @@
                 </p>
             </div>
         </div>
+        <button class="add-comment" data-id="{{post.id}}">add comment</button>
     </section>
     {{/each}}
 
+    
+
 </div>
+<script src="./js/handleComments.js"></script>

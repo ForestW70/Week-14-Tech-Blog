@@ -2,7 +2,7 @@
     <h2 class="greeting">Welcome {{username}}, here are your recent posts!</h3>
     
     {{#each userPosts as |post|}}
-    <section id="blog-posts">
+    <section class="blog-posts">
         <div class="post">
             <div class="post-head">
                 <span class="title">{{post.post_title}}</span>
@@ -18,4 +18,3 @@
     {{/each}}
 </div>
 
-<script src="./js/newPost.js"></script>

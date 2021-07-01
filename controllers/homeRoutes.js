@@ -80,4 +80,17 @@ router.get('/create-post', withAuth, async(req, res) => {
     res.render('create-post', {username: req.session.username, user_id: req.session.user_id, logged_in: req.session.logged_in});
 })
 
+router.get('/post/:id', async (req, res) => {
+    const postId = req.params.id;
+    try {
+        const singlePostData = await BlogPost.findByPk(postId)
+        const singlePost = singlePostData.get({ plain: true })
+        
+        const commentData = await 
+        res.render('post-comment', { singlePost, logged_in: req.session.logged_in })
+    } catch (err) {
+        res.status(400).json(err);
+    }
+})
+
 module.exports = router;

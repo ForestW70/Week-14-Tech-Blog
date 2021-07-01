@@ -1,0 +1,27 @@
+<div>
+    <section class="blog-posts">
+        <div class="post">
+            <div class="post-head">
+                <span class="title">{{singlePost.post_title}}</span>
+                <span class="post-info">Global post #{{singlePost.id}} by {{singlePost.user_id}}</span>
+            </div>
+            <div>
+                <p class="post-body">
+                    {{singlePost.post_body}}
+                </p>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="new-comment">
+        <div>
+            <div class="new-body">
+                <label class="new-post-top" for="commentBody">Comment:</label>
+                <textarea id="commentBody"></textarea>
+            </div>
+            <button id="new-comment-btn" data-id="{{singlePost.id}}">When you're ready, click here to comment!</button>
+        </div>
+    </section>
+    
+</div>

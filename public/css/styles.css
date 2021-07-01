@@ -31,18 +31,19 @@ ul {
     display: inline-block;
 }
 
-.new-post {
+.new-post, .new-comment {
     background-color: honeydew;
     width: 80%;
     margin: 0 auto;
     border-radius: 25px;
 }
 
-.new-post label {
+.new-post label, .new-comment label {
     color: rgb(72 78 75);
 }
 
-.new-post label, .new-post input, .new-post textarea {
+.new-post label, .new-post input, .new-post textarea,
+.new-comment label, .new-comment textarea {
     display: block;
     width: 80%;
     margin: 10px auto;
@@ -53,7 +54,7 @@ ul {
     padding-top: 25px;
 }
 
-#new-post-btn {
+#new-post-btn, #new-comment-btn {
     background-color: aliceblue;
     width: 100%;
     border: 1px solid navajowhite;
@@ -82,7 +83,7 @@ article {
     margin-bottom: 20px;
 }
 
-#blog-posts {
+.blog-posts {
     border: rgb(35, 70, 35) solid 1px;
     background-color: rgb(35, 70, 35);
     margin: 10px 30px;

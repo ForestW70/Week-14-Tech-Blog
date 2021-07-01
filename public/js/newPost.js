@@ -5,11 +5,10 @@ const newPost = async (event) => {
 
     const post_title = document.getElementById('postTitle').value.trim();
     const post_body = document.getElementById('postBody').value.trim();
-    // const user_id = document.getElementById('curUserId').value;
     const date_created = Date.now();
 
     try {
-        const response = await fetch('/api/blog/new', {
+        const response = await fetch('/api/blog/new-post', {
             method: 'POST',
             body: JSON.stringify({post_title, post_body, date_created}),
             headers: { 'Content-Type': 'application/json' },
