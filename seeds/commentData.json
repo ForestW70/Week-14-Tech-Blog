@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "comment_body": "It's techn time!!!",
+        "user_id": 1,
+        "blog_post_id": 1,
+        "date_created": 1625166530081
+    },
+    {
+        "id": 2,
+        "comment_body": "Woah this is cool",
+        "user_id": 2,
+        "blog_post_id": 1,
+        "date_created": 1625166540081
+    },
+    {
+        "id": 3,
+        "comment_body": "Hi im raph what is this",
+        "user_id": 3,
+        "blog_post_id": 1,
+        "date_created": 1625166550081
+    }
+]

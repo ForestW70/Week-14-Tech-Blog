@@ -13,7 +13,7 @@ router.get('/login', (req, res) => {
 })
 
 router.get('/home', async (req, res) => {
-    
+
     try {
         const allPosts = await BlogPost.findAll({
             include: [
@@ -25,7 +25,7 @@ router.get('/home', async (req, res) => {
             order: [['id', 'DESC']]
         });
 
-        const blogPosts = allPosts.map((post) => 
+        const blogPosts = allPosts.map((post) =>
             post.get({ plain: true })
         )
         blogPosts.forEach(async (post) => {
@@ -65,19 +65,19 @@ router.get('/user-dash', withAuth, async (req, res) => {
             order: [['date_created', 'DESC']]
         });
 
-        const userPosts = userData.map(posts => 
+        const userPosts = userData.map(posts =>
             posts.get({ plain: true })
         )
         // res.status(200).json(userPosts)
-        res.render('user-dash', {userPosts, username: req.session.username, logged_in: req.session.logged_in })
+        res.render('user-dash', { userPosts, username: req.session.username, logged_in: req.session.logged_in })
 
     } catch (err) {
         res.status(500).json(err)
     }
 })
 
-router.get('/create-post', withAuth, async(req, res) => {
-    res.render('create-post', {username: req.session.username, user_id: req.session.user_id, logged_in: req.session.logged_in});
+router.get('/create-post', withAuth, async (req, res) => {
+    res.render('create-post', { username: req.session.username, user_id: req.session.user_id, logged_in: req.session.logged_in });
 })
 
 router.get('/post/:id', async (req, res) => {
@@ -85,9 +85,23 @@ router.get('/post/:id', async (req, res) => {
     try {
         const singlePostData = await BlogPost.findByPk(postId)
         const singlePost = singlePostData.get({ plain: true })
-        
-        const commentData = await 
-        res.render('post-comment', { singlePost, logged_in: req.session.logged_in })
+
+        const commentData = await Comment.findAll({
+            include: [
+                {
+                    model: BlogPost,
+                    where: {
+                        blog_post_id: postId,
+                    }
+                }
+            ],
+            order: [['date_created', 'DESC']]
+        });
+        const postComments = commentData.map(comment =>
+            comment.get({ plain: true })
+        )
+
+        res.render('post-comment', { singlePost, postComments, logged_in: req.session.logged_in })
     } catch (err) {
         res.status(400).json(err);
     }

@@ -8,6 +8,16 @@
       "id" : 2,
       "username": "smitty",
       "password": "password"
+    },
+    {
+      "id" : 3,
+      "username": "raph",
+      "password": "password"
+    },
+    {
+      "id" : 4,
+      "username": "sal",
+      "password": "password"
     }
 ]
   
