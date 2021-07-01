@@ -3,6 +3,7 @@ const addCommentBtns = document.querySelectorAll(".add-comment");
 
 const goToSinglePost = async (e) => {
     const postId = e.target.dataset.id;
+    
     const req = await fetch('/post/' + postId, {
         method: 'GET',
         headers: {}
@@ -12,7 +13,6 @@ const goToSinglePost = async (e) => {
     } else {
         alert(req.status.statusText);
     }
-
 }
 
 addCommentBtns.forEach(btn => {

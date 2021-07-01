@@ -19,5 +19,12 @@
         "user_id": 3,
         "blog_post_id": 1,
         "date_created": 1625166550081
+    },
+    {
+        "id": 4,
+        "comment_body": "Hi im raph there is more than one comment?",
+        "user_id": 3,
+        "blog_post_id": 2,
+        "date_created": 1625166450081
     }
 ]

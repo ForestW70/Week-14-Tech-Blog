@@ -12,7 +12,7 @@ User.hasMany(Comment, {
 });
 
 BlogPost.belongsTo(User, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
 })
 
 BlogPost.hasMany(Comment, {

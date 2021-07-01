@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, BlogPost } = require('../models');
+const { User, BlogPost, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 
@@ -86,24 +86,39 @@ router.get('/post/:id', async (req, res) => {
         const singlePostData = await BlogPost.findByPk(postId)
         const singlePost = singlePostData.get({ plain: true })
 
-        const commentData = await Comment.findAll({
+        const commentsData = await Comment.findAll({
+            where: {
+                blog_post_id: req.params.id
+            },
             include: [
                 {
-                    model: BlogPost,
-                    where: {
-                        blog_post_id: postId,
-                    }
+                    model: User,
+                    attributes: ['username'],
                 }
-            ],
-            order: [['date_created', 'DESC']]
+            ]
         });
-        const postComments = commentData.map(comment =>
+
+        
+
+        const postComments = commentsData.map((comment) =>
             comment.get({ plain: true })
         )
 
+        postComments.forEach(async (comment) => {
+            const authorData = await User.findOne({
+                where: {
+                    id: comment.user_id
+                }
+            })
+            let author = authorData.get({ plain: true });
+            comment.author = author.username;
+        })
+        
         res.render('post-comment', { singlePost, postComments, logged_in: req.session.logged_in })
+
     } catch (err) {
         res.status(400).json(err);
+        console.log(err);
     }
 })
 

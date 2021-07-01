@@ -24,5 +24,19 @@
     </section>
 
     {{#each postComments as |comm|}}
+    <section class="blog-posts">
+        <div class="post">
+            <div class="post-head">
+                <span class="title"> comment by: {{comm.author}}</span>
+                <span class="post-info">Comment #{{comm.id}}</span>
+            </div>
+            <div>
+                <p class="post-body">
+                    {{comm.comment_body}}
+                </p>
+            </div>
+        </div>
+    </section>
+    {{/each}}
     
 </div>
