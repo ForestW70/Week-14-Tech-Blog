@@ -61,7 +61,8 @@ router.get('/user-dash', withAuth, async (req, res) => {
                         id: req.session.user_id
                     }
                 }
-            ]
+            ],
+            order: [['date_created', 'DESC']]
         });
 
         const userPosts = userData.map(posts => 
@@ -76,7 +77,7 @@ router.get('/user-dash', withAuth, async (req, res) => {
 })
 
 router.get('/create-post', withAuth, async(req, res) => {
-    res.render('create-post', {username: req.session.username, logged_in: req.session.logged_in});
+    res.render('create-post', {username: req.session.username, user_id: req.session.user_id, logged_in: req.session.logged_in});
 })
 
 module.exports = router;

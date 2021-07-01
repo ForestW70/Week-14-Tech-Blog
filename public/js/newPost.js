@@ -3,13 +3,23 @@
 const newPost = async (event) => {
     event.preventDefault();
 
-    const title = document.getElementById('postTitle').value.trim();
-    const body = document.getElementById('postBody').value.trim();
-    const userId = document.getElementById('userId').value.trim();
-    const dateCreated = Date.now();
+    const post_title = document.getElementById('postTitle').value.trim();
+    const post_body = document.getElementById('postBody').value.trim();
+    // const user_id = document.getElementById('curUserId').value;
+    const date_created = Date.now();
 
     try {
-        const response = await fetch('/api/blog/new')
+        const response = await fetch('/api/blog/new', {
+            method: 'POST',
+            body: JSON.stringify({post_title, post_body, date_created}),
+            headers: { 'Content-Type': 'application/json' },
+        })
+
+        if (response.ok) {
+            document.location.replace('/user-dash');
+        } else {
+            alert('Something went wrong!');
+        }
         
     } catch (err) {
         console.log(err);
@@ -17,4 +27,4 @@ const newPost = async (event) => {
 
 }
 
-document.getElementById('create-post-button').addEventListener('click', newPost)
+document.getElementById('new-post-btn').addEventListener('click', newPost)
