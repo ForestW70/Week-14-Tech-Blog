@@ -98,8 +98,6 @@ router.get('/post/:id', async (req, res) => {
             ]
         });
 
-        
-
         const postComments = commentsData.map((comment) =>
             comment.get({ plain: true })
         )
