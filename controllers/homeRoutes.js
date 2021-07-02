@@ -80,15 +80,25 @@ router.get('/create-post', withAuth, async (req, res) => {
     res.render('create-post', { username: req.session.username, user_id: req.session.user_id, logged_in: req.session.logged_in });
 })
 
-router.get('/post/:id', async (req, res) => {
+router.get('/post/:user/:id', async (req, res) => {
     const postId = req.params.id;
+    const postBy = req.params.user;
     try {
-        const singlePostData = await BlogPost.findByPk(postId)
+        const singlePostData = await BlogPost.findByPk(postId);
         const singlePost = singlePostData.get({ plain: true })
+        // singlePost.forEach(async (post) => {
+        //     const authorData = await User.findOne({
+        //         where: {
+        //             id: post.user_id
+        //         }
+        //     })
+        //     let author = authorData.get({ plain: true });
+        //     post.author = author.username;
+        // })
 
         const commentsData = await Comment.findAll({
             where: {
-                blog_post_id: req.params.id
+                blog_post_id: postId,
             },
             include: [
                 {
@@ -111,8 +121,8 @@ router.get('/post/:id', async (req, res) => {
             let author = authorData.get({ plain: true });
             comment.author = author.username;
         })
-        
-        res.render('post-comment', { singlePost, postComments, logged_in: req.session.logged_in })
+        // res.status(200).json(singlePost);
+        res.render('post-comment', { singlePost, postComments, postBy, logged_in: req.session.logged_in })
 
     } catch (err) {
         res.status(400).json(err);

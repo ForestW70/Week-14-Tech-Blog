@@ -3,7 +3,7 @@
         <div class="post">
             <div class="post-head">
                 <span class="title">{{singlePost.post_title}}</span>
-                <span class="post-info">Global post #{{singlePost.id}} by {{singlePost.user_id}}</span>
+                <span class="post-info">Global post #{{singlePost.id}} by {{postBy}}</span>
             </div>
             <div>
                 <p class="post-body">
@@ -28,7 +28,9 @@
         <div class="post">
             <div class="post-head">
                 <span class="title"> comment by: {{comm.author}}</span>
+                <span class="post-info">Posted: {{comm.date_created}}</span>
                 <span class="post-info">Comment #{{comm.id}}</span>
+
             </div>
             <div>
                 <p class="post-body">

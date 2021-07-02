@@ -8,6 +8,7 @@
         <div class="post">
             <div class="post-head">
                 <span class="title">{{post.post_title}}</span>
+                <span class="post-info">Posted: {{post.date_created}}</span>
                 <span class="post-info">Global post #{{post.id}} by {{post.author}}</span>
             </div>
             <div>
@@ -16,7 +17,7 @@
                 </p>
             </div>
         </div>
-        <button class="add-comment" data-id="{{post.id}}">add comment</button>
+        <button class="add-comment" data-id="{{post.id}}" data-username="{{post.author}}">add comment</button>
     </section>
     {{/each}}
 
