@@ -31,4 +31,19 @@ router.post('/new-comment', async (req, res) => {
     }
 })
 
+router.delete('/delete/:id', async (req, res) => {
+    try {
+        const post = await BlogPost.findByPk(req.params.id)
+        if (!post) {
+            alert("No post found with this ID!")
+        }
+
+        post.destroy();
+        res.status(200).json("Post deleted!");
+
+    } catch (err) {
+        res.status(400).json(err);
+    }
+})
+
 module.exports = router;

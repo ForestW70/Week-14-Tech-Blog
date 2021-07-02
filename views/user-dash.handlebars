@@ -13,8 +13,14 @@
                     {{post.post_body}}
                 </p>
             </div>
+            <button class="add-comment" data-id="{{post.id}}" data-username="{{username}}">View comments</button>
+            <button class="del-post" data-id="{{post.id}}">Delete post</button>
+
         </div>
     </section>
     {{/each}}
 </div>
+<script src="./js/handlePostView.js"></script>
+<script src="./js/deletePost.js"></script>
+
 
