@@ -75,9 +75,26 @@ ul {
     padding: 0 10px;
 }
 
-.nav-list li a {
+.nav-el:hover {
+    text-shadow: 0 0 3px rgb(0, 255, 0);
+}
+
+.nav-el a {
     text-decoration: none;
-    color: #ffff
+    color: #ffff;
+    vertical-align: middle;
+    margin: 0 10px;
+}
+
+
+.cur-tab::before {
+    content: "{";
+    font-size: 28px;
+}
+
+.cur-tab::after {
+    content: "}";
+    font-size: 28px;
 }
 
 .log-in-switch {
@@ -170,6 +187,17 @@ article {
     background-color: rgb(208, 255, 208);
     padding: 30px;
     border-radius: 5px;
+}
+
+.add-comment {
+    border: 1px solid rgb(35, 70, 35);
+    border-radius: 4px;
+    background-color: honeydew;
+    padding: 5px 20px;
+}
+
+.add-comment:hover {
+    background-color: rgb(245, 245, 245);
 }
 
 
