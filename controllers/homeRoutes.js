@@ -22,12 +22,12 @@ router.get('/home', async (req, res) => {
                     attributes: ['username'],
                 },
             ],
-            order: [['id', 'DESC']]
+            order: [['id', 'DESC']],
         });
 
         const blogPosts = allPosts.map((post) =>
             post.get({ plain: true })
-        )
+        );
         blogPosts.forEach(async (post) => {
             let authorData = await User.findOne({
                 where: {
@@ -62,13 +62,12 @@ router.get('/user-dash', withAuth, async (req, res) => {
                     }
                 }
             ],
-            order: [['date_created', 'DESC']]
+            order: [['date_created', 'DESC']],
         });
 
         const userPosts = userData.map(posts =>
             posts.get({ plain: true })
-        )
-        // res.status(200).json(userPosts)
+        );
         res.render('user-dash', { userPosts, username: req.session.username, logged_in: req.session.logged_in })
 
     } catch (err) {

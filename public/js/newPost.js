@@ -1,4 +1,3 @@
-// const { DataTypes, json } = require("sequelize/types");
 
 const newPost = async (event) => {
     event.preventDefault();

@@ -92,7 +92,7 @@ const switchTabStyle = () => {
 switchTabStyle();
 
 
-document.getElementById('goToLogin').addEventListener('click', goToLoginScreen);
-document.getElementById('goToBlog').addEventListener('click', goToBlog);
-document.getElementById('goToUserHome').addEventListener('click', goToUserHome);
-document.getElementById('goToCreatePost').addEventListener('click', goToCreatePost)
+// document.getElementById('goToLogin').addEventListener('click', goToLoginScreen);
+// document.getElementById('goToBlog').addEventListener('click', goToBlog);
+// document.getElementById('goToUserHome').addEventListener('click', goToUserHome);
+// document.getElementById('goToCreatePost').addEventListener('click', goToCreatePost)

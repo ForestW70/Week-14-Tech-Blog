@@ -1,7 +1,6 @@
 const withAuth = (req, res, next) => {
     if (!req.session.logged_in) {
-      res.redirect('/login');
-      alert("Please log in or create an account to continue!")
+      res.redirect('/api/users/redirect');
     } else {
       next();
     }

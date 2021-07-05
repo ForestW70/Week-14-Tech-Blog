@@ -97,6 +97,18 @@ ul {
     font-size: 28px;
 }
 
+#warning {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    width: 30%;
+    margin: 15px auto;
+    padding: 10px 0;
+    border-radius: 17px;
+    color: #62795e;
+    border-bottom: 3px solid #415840;
+}
+
 .log-in-switch {
     border: none;
     margin: 0 auto;

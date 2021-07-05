@@ -1,12 +1,12 @@
 <div class="hbs-body">
-
     <section class="account-screen">
+    <p id="warning">{{msg}}</p>
         <div class="button-bar">
             <button class="log-in-switch on" id="login-screen">Log in:</button>
             <button class="log-in-switch" id="create-act-screen">Create account:</button>
         </div>
         <article class="" id="loginPanel">
-            <p class="pad log-head">Log in with existing account~</p>
+            <p class="pad log-head">Log in~</p>
             <form>
                 <div class="log-grid">
                     <label class="log-title" for="login-user">Username:</label>
@@ -21,7 +21,7 @@
         </article>
 
         <article class="hide" id="createAccountPanel">
-            <p class="pad log-head">Create a new account~</p>
+            <p class="pad log-head">New user~</p>
             <form>
                 <div class="log-grid">
                     <label class="log-title" for="create-user">Username:</label>
@@ -42,5 +42,5 @@
     </section>
 </div>
 
-<script src="./js/login.js"></script>
-<script src="./js/login-switch.js"></script>
+<script src="/js/login.js"></script>
+<script src="/js/login-switch.js"></script>

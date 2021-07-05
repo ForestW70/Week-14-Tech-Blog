@@ -5,6 +5,11 @@ router.get('/login', async (req, res) => {
     res.render('login');
 })
 
+router.get('/redirect', (req, res) => {
+    // res.redirect('/login');
+    res.render('login', { msg: "Please login or create an account to continue." })
+})
+
 router.post('/login', async (req, res) => {
     try {
         const userData = await User.findOne({
@@ -97,6 +102,7 @@ router.post('/logout', (req, res) => {
         req.session.destroy(() => {
             res.status(204).end();
         });
+        res.redirect('/')
     } else {
         res.status(404).end();
     }
