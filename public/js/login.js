@@ -35,7 +35,7 @@ const createUserFormHandler = async (event) => {
     const password = document.getElementById('create-pass').value.trim();
     const passConfirm = document.getElementById('password-confirm').value.trim();
 
-    if (!password === passConfirm) {
+    if (password != passConfirm) {
         alert("Passwords do not match. Please try again.");
         return;
     }

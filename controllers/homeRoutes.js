@@ -34,7 +34,7 @@ router.get('/home', async (req, res) => {
                     id: post.user_id
                 }
             });
-            author = authorData.get({ plain: true });
+            let author = authorData.get({ plain: true });
             post.author = author.username;
 
         })
