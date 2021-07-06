@@ -13,7 +13,7 @@ const postComment = async () => {
     if (req.ok) {
         document.location.replace(window.location.href);
     } else if(req.status === 401) {
-        document.location.replace("http://localhost:3456/api/users/redirect");
+        document.location.replace("/api/users/redirect");
     } else {
         alert('Failed to comment! Please try again!');   
 

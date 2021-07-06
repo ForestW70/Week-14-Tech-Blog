@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
-    {{!-- <link rel="icon" href="https://www.clipartmax.com/png/middle/86-869011_education-tech-icon.png"> --}}
+    <link rel="icon" href="/images/icon.png">
     <title>Tech Blog</title>
 </head>
 
@@ -16,16 +16,16 @@
         <h2 class="head-text">TechTok</h2>
         <nav>
             <ul class="nav-list">
-                <li class="nav-el"><a href="http://localhost:3456/home" id="goToBlog">Home</a></li>
-                <li class="nav-el"><a href="http://localhost:3456/user-dash" id="goToUserHome">Dashboard</a></li>
-                <li class="nav-el"><a href="http://localhost:3456/create-post" id="goToCreatePost">Create Post</a></li>
+                <li class="nav-el"><a href="https://techblog3456.herokuapp.com/home" id="goToBlog">Home</a></li>
+                <li class="nav-el"><a href="https://techblog3456.herokuapp.com/user-dash" id="goToUserHome">Dashboard</a></li>
+                <li class="nav-el"><a href="https://techblog3456.herokuapp.com/create-post" id="goToCreatePost">Create Post</a></li>
 
 
                 {{#if logged_in}}
-                <li class="hide"><a href="http://localhost:3456/login" id="goToLogin">Log in</a></li>
+                <li class="hide"><a href="https://techblog3456.herokuapp.com/login" id="goToLogin">Log in</a></li>
                 <li class="nav-el"><a href="" id="logout">log out</a></li>
                 {{else}}
-                <li class="nav-el"><a href="http://localhost:3456/login" id="goToLogin">Log in</a></li>
+                <li class="nav-el"><a href="https://techblog3456.herokuapp.com/login" id="goToLogin">Log in</a></li>
                 {{/if}}
             </ul>
         </nav>
