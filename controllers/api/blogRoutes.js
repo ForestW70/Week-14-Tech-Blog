@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const { User, BlogPost, Comment } = require('../../models');
+const withAuth = require('../../public/js/utils/auth');
+
 
 router.post('/new-post', async (req, res) => {
     try {
@@ -16,6 +18,10 @@ router.post('/new-post', async (req, res) => {
 })
 
 router.post('/new-comment', async (req, res) => {
+    if (!req.session.logged_in) {
+        res.status(401).json("not logged in");
+    }
+    
     try {
         const newComment = await Comment.create({
             comment_body: req.body.comment_body,
