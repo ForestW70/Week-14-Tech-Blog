@@ -195,7 +195,7 @@ article {
 }
 
 .post-body {
-    margin: 15px 20px;
+    /* margin: 15px 20px; */
     background-color: rgb(208, 255, 208);
     padding: 30px;
     border-radius: 5px;
@@ -206,10 +206,18 @@ article {
     border-radius: 4px;
     background-color: honeydew;
     padding: 5px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    color: green;
 }
 
 .add-comment:hover {
     background-color: rgb(245, 245, 245);
+    text-shadow: 0 0 .5px black;
+}
+
+.del-post {
+    padding: 5px 20px;
 }
 
 
