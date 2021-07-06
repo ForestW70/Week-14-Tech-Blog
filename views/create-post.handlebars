@@ -5,11 +5,11 @@
         <div>
             <div class="new-title">
                 <label class="new-post-top" for="postTitle">Title:</label>
-                <input type="text" id="postTitle">
+                <input type="text" id="postTitle" maxlength="40">
             </div>
             <div class="new-body">
                 <label for="postBody">Post body:</label>
-                <textarea id="postBody"></textarea>
+                <textarea id="postBody" maxlength="250"></textarea>
             </div>
             <button id="new-post-btn">When you're ready, click here to submit!</button>
             <span class="hide" id="curUserId">{{user_id}}</span>

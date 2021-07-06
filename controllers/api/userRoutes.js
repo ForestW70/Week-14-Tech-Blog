@@ -6,7 +6,6 @@ router.get('/login', async (req, res) => {
 })
 
 router.get('/redirect', (req, res) => {
-    // res.redirect('/login');
     res.render('login', { msg: "Please login or create an account to continue." })
 })
 

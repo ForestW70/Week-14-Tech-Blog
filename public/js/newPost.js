@@ -3,7 +3,7 @@ const newPost = async (event) => {
     event.preventDefault();
 
     const post_title = document.getElementById('postTitle').value.trim();
-    const post_body = document.getElementById('postBody').value.trim();
+    const post_body = document.getElementById('postBody').value;
     const date_created = Date.now();
 
     try {

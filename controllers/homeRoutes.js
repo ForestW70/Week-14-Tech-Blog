@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, BlogPost, Comment } = require('../models');
-const withAuth = require('../utils/auth');
+const withAuth = require('../public/js/utils/auth');
 
 
 // log-in, sign up routes
@@ -111,7 +111,6 @@ router.get('/post/:user/:id', async (req, res) => {
             let author = authorData.get({ plain: true });
             comment.author = author.username;
         })
-        // res.status(200).json(singlePost);
         res.render('post-comment', { singlePost, postComments, postBy, logged_in: req.session.logged_in })
 
     } catch (err) {

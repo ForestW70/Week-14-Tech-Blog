@@ -2,6 +2,7 @@
     <h2 class="greeting">{{username}}'s posts:</h3>
     
     {{#each userPosts as |post|}}
+    
     <section class="blog-posts">
         <div class="post">
             <div class="post-head">
@@ -13,14 +14,14 @@
                     {{post.post_body}}
                 </p>
             </div>
-            <button class="add-comment" data-id="{{post.id}}" data-username="{{username}}">View comments</button>
+            <a class="add-comment" href="http://localhost:3456/post/{{../username}}/{{post.id}}">add comment</a>
+
             <button class="del-post" data-id="{{post.id}}">Delete post</button>
 
         </div>
     </section>
     {{/each}}
 </div>
-<script src="./js/handlePostView.js"></script>
 <script src="./js/deletePost.js"></script>
 
 

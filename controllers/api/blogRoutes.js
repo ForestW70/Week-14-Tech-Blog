@@ -6,13 +6,12 @@ router.post('/new-post', async (req, res) => {
         const newPost = await BlogPost.create({
             post_title: req.body.post_title,
             post_body: req.body.post_body,
-            date_created: req.body.date_create,
-            user_id: req.session.user_id
+            date_created: req.body.date_created,
+            user_id: req.session.user_id,
         });
         res.status(200).json("new post created!");
-        res.redirect('/home')
     } catch (err) {
-        res.status(400).json(err);
+        res.status(401).json(err);
     }
 })
 
@@ -26,7 +25,7 @@ router.post('/new-comment', async (req, res) => {
         })
         res.status(200).json("new comment created!");
     } catch (err) {
-        res.status(400).json(err).json(req.session.user_id);
+        res.status(400).json(err);
     }
 })
 
