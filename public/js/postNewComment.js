@@ -1,6 +1,8 @@
 
 const postComment = async (e) => {
-    const post_id = e.target.dataset.id;
+    // const post_id = e.target.dataset.id;
+    const userInfo = document.getElementById('grabUid').innerText
+    const post_id = userInfo.split(' ')[2];
     const comment_body = document.getElementById('commentBody').value.trim();
 
     const req = await fetch('/api/blog/new-comment', {
@@ -10,7 +12,7 @@ const postComment = async (e) => {
 
     })
     if (req.ok) {
-        document.location.replace(`/post/${post_id}` );
+        document.location.replace(window.location.href);
     } else {
         alert('Failed to comment! Please try again!');   
     }

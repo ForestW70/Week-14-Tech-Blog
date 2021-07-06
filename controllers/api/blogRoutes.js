@@ -25,9 +25,8 @@ router.post('/new-comment', async (req, res) => {
             date_created: Date.now(),
         })
         res.status(200).json("new comment created!");
-        res.redirect('/post/' + post_id);
     } catch (err) {
-        res.status(400).json(err);
+        res.status(400).json(err).json(req.session.user_id);
     }
 })
 

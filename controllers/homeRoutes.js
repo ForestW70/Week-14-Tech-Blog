@@ -85,15 +85,6 @@ router.get('/post/:user/:id', async (req, res) => {
     try {
         const singlePostData = await BlogPost.findByPk(postId);
         const singlePost = singlePostData.get({ plain: true })
-        // singlePost.forEach(async (post) => {
-        //     const authorData = await User.findOne({
-        //         where: {
-        //             id: post.user_id
-        //         }
-        //     })
-        //     let author = authorData.get({ plain: true });
-        //     post.author = author.username;
-        // })
 
         const commentsData = await Comment.findAll({
             where: {
