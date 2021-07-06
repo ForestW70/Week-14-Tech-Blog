@@ -10,7 +10,7 @@ const postComment = async (e) => {
 
     })
     if (req.ok) {
-        document.location.replace('/post/' + post_id);
+        document.location.replace(`/post/${post_id}` );
     } else {
         alert('Failed to comment! Please try again!');   
     }

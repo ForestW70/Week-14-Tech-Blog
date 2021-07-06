@@ -19,30 +19,30 @@ router.post('/login', async (req, res) => {
         });
 
         if (!userData) {
-            res
-                .status(400)
-                .json({ message: 'Incorrect username, please try again' });
+            res.status(400).json(
+                { message: 'Incorrect information, please try again' }
+            );
             return;
         }
 
         const validPassword = await userData.checkPassword(req.body.password);
 
         if (!validPassword) {
-            res
-                .status(400)
-                .json({ message: 'Incorrect password, please try again' });
+            res.status(400).json(
+                { message: 'Incorrect information, please try again' }
+            );
             return;
         }
 
         const user = userData.get({ plain: true })
-        
+
         if (!req.session.initialised) {
             req.session.initialised = true;
             req.session.user_id = user.id;
             req.session.username = user.username;
             req.session.logged_in = true;
         }
-        
+        res.status(200)
         res.render('homepage', { username: user.username, logged_in: true });
 
     } catch (err) {
@@ -54,7 +54,7 @@ router.post('/add', async (req, res) => {
     try {
         const userData = await User.create(req.body);
 
-        
+
         if (!req.session.initialised) {
             req.session.initialised = true;
             req.session.user_id = userData.id;
@@ -62,7 +62,7 @@ router.post('/add', async (req, res) => {
             req.session.logged_in = true;
         }
 
-        res.status(200).json("account created!");
+        res.status(200)
         res.render('homepage', { username: req.session.username, logged_in: true });
 
     } catch (err) {

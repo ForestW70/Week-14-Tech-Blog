@@ -80,8 +80,8 @@ router.get('/create-post', withAuth, async (req, res) => {
 })
 
 router.get('/post/:user/:id', async (req, res) => {
-    const postId = req.params.id;
     const postBy = req.params.user;
+    const postId = req.params.id;
     try {
         const singlePostData = await BlogPost.findByPk(postId);
         const singlePost = singlePostData.get({ plain: true })

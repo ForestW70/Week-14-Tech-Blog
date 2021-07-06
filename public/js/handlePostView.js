@@ -16,7 +16,7 @@ const goToSinglePost = async (e) => {
     }
 }
 
-addCommentBtns.forEach(btn => {
-    btn.addEventListener('click', goToSinglePost);
-})
+// addCommentBtns.forEach(btn => {
+//     btn.addEventListener('click', goToSinglePost);
+// })
 

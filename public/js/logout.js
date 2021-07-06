@@ -11,6 +11,8 @@ const logout = async () => {
 
     if (!response.ok) {
         alert(response.statusText);
+    } else {
+        location.replace('/home');
     }
 };
 

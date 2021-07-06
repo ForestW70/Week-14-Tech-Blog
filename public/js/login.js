@@ -8,7 +8,7 @@ const loginFormHandler = async (event) => {
     if (!username || !password) {
         alert('Please type in both your username and password.');
     }
-    
+
     try {
         const response = await fetch('/api/users/login', {
             method: 'POST',
@@ -16,11 +16,10 @@ const loginFormHandler = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
 
-        if (response.ok) {
-            document.location.replace('/home');
-
+        if (!response.ok) {
+            alert('Failed to log in');
         } else {
-            alert('Failed to log in');  
+            location.replace('/home');
         }
 
     } catch (err) {
@@ -51,10 +50,10 @@ const createUserFormHandler = async (event) => {
                 headers: { 'Content-Type': 'application/json' },
             })
 
-            if (newUserRes.ok) {
-                document.location.replace('/home');
+            if (!newUserRes.ok) {
+                alert('Failed to sign up! Make sure password has 8 or more characters!');
             } else {
-                alert('Failed to sign up! Make sure password has 8 or more characters!');   
+                location.replace('/home');
             }
 
         } else {

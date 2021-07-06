@@ -20,7 +20,6 @@ const displayLogin = () => {
 const displayCreateAct = () => {
     logPanel.classList.add('hide');
     createPanel.classList.remove('hide');
-
     logInDisplay.classList.remove('on');
     createActDisplay.classList.add('on');
 }

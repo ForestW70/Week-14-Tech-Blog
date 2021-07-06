@@ -17,11 +17,12 @@
                 </p>
             </div>
         </div>
-        <button class="add-comment" data-id="{{post.id}}" data-username="{{post.author}}">add comment</button>
+        <a class="add-comment" href="http://localhost:3456/post/{{post.author}}/{{post.id}}">add comment</a>
     </section>
     {{/each}}
 
     
+{{!-- <a class="add-comment" data-id="{{post.id}}" data-username="{{post.author}}">add comment</a> --}}
 
 </div>
 <script src="./js/handlePostView.js"></script>
