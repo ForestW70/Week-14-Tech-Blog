@@ -1,6 +1,5 @@
 
-const postComment = async (e) => {
-    // const post_id = e.target.dataset.id;
+const postComment = async () => {
     const userInfo = document.getElementById('grabUid').innerText
     const post_id = userInfo.split(' ')[2];
     const comment_body = document.getElementById('commentBody').value.trim();
@@ -9,7 +8,7 @@ const postComment = async (e) => {
         method: 'POST',
         body: JSON.stringify({comment_body, post_id }),
         headers: { 'Content-Type': 'application/json' },
-
+        
     })
     if (req.ok) {
         document.location.replace(window.location.href);

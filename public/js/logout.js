@@ -9,10 +9,10 @@ const logout = async () => {
         headers: { 'Content-Type': 'application/json' },
     });
 
-    if (!response.ok) {
-        alert(response.statusText);
-    } else {
+    if (response.ok) {
         location.replace('/home');
+    } else {
+        alert(response.statusText);
     }
 };
 
