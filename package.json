@@ -8,7 +8,7 @@
     "start": "node server.js",
     "live": "nodemon server.js",
     "mySql": "mysql -uroot < db/schema.sql",
-    "seeder": "node seeds/seed.js"
+    "seeder": "node seeds/index.js"
   },
   "repository": {
     "type": "git",
