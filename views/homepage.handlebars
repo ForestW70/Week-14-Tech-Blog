@@ -9,14 +9,14 @@
             <div class="post-head">
                 <span class="title">{{post.post_title}}</span>
                 <span class="post-info">Posted: {{post.date_created}}</span>
-                <span class="post-info">Global post #{{post.id}} by {{post.author}}</span>
+                <span class="post-info">Global post #{{post.id}} by {{post.user.username}}</span>
             </div>
             <div>
                 <p class="post-body">
                     {{post.post_body}}
                 </p>
             </div>
-        <a class="add-comment" href="/post/{{post.author}}/{{post.id}}">add comment</a>
+        <a class="add-comment" href="/post/{{post.user.username}}/{{post.id}}">add comment</a>
         </div>
     </section>
     {{/each}}

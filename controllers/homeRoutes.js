@@ -19,7 +19,7 @@ router.get('/home', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['username'],
+                    attributes: ['username']
                 },
             ],
             order: [['id', 'DESC']],
@@ -28,21 +28,25 @@ router.get('/home', async (req, res) => {
         const blogPosts = allPosts.map((post) =>
             post.get({ plain: true })
         );
-        blogPosts.forEach(async (post) => {
-            let authorData = await User.findOne({
-                where: {
-                    id: post.user_id
-                }
-            });
-            let author = authorData.get({ plain: true });
-            post.author = author.username;
+        
+        
+        // blogPosts.forEach(async (post) => {
+        //     let authorData = await User.findOne({
+        //         where: {
+        //             id: post.user_id
+        //         }
+        //     });
+        //     let author = authorData.get({ plain: true });
+        //     post.author = author.username;
 
-        })
+        // })
+
         if (!req.session.logged_in) {
             res.render('homepage', { blogPosts });
         } else {
             res.render('homepage', { blogPosts, username: req.session.username, logged_in: req.session.logged_in })
         }
+        res.status(200);
     } catch (err) {
         res.status(400).json(err);
     }
