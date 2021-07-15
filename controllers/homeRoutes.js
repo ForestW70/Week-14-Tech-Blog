@@ -106,15 +106,15 @@ router.get('/post/:user/:id', async (req, res) => {
             comment.get({ plain: true })
         )
 
-        postComments.forEach(async (comment) => {
-            const authorData = await User.findOne({
-                where: {
-                    id: comment.user_id
-                }
-            })
-            let author = authorData.get({ plain: true });
-            comment.author = author.username;
-        })
+        // postComments.forEach(async (comment) => {
+        //     const authorData = await User.findOne({
+        //         where: {
+        //             id: comment.user_id
+        //         }
+        //     })
+        //     let author = authorData.get({ plain: true });
+        //     comment.author = author.username;
+        // })
         res.render('post-comment', { singlePost, postComments, postBy, logged_in: req.session.logged_in })
 
     } catch (err) {

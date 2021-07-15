@@ -99,7 +99,7 @@ router.get('/:username', async (req, res) => {
 router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
         req.session.destroy(() => {
-            res.status(204).end();
+            res.status(200).end();
         });
     } else {
         res.status(404).end();
@@ -107,9 +107,9 @@ router.post('/logout', (req, res) => {
 });
 
 
-router.get('/', async (req, res) => {
+// router.get('/', async (req, res) => {
 
-    res.status(200).json("BBBBBBBBB");
-});
+//     res.status(200).json("BBBBBBBBB");
+// });
 
 module.exports = router;
