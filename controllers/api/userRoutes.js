@@ -1,14 +1,18 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+// renders login page.
 router.get('/login', async (req, res) => {
     res.render('login');
 })
 
+// login page render triggered by the with auth function. custom message.
 router.get('/redirect', (req, res) => {
     res.render('login', { msg: "Please login or create an account to continue." })
 })
 
+// create a login request. checks if user exists, then checks password to validate.
+// if sucessful, set some session variables, then redirect to homepage.
 router.post('/login', async (req, res) => {
     try {
         const userData = await User.findOne({
@@ -49,6 +53,7 @@ router.post('/login', async (req, res) => {
     }
 });
 
+// create a new user. 
 router.post('/add', async (req, res) => {
     try {
         const userData = await User.create(req.body);
@@ -69,6 +74,7 @@ router.post('/add', async (req, res) => {
     }
 });
 
+// checks if username exists. (used in create user function).
 router.get('/:username', async (req, res) => {
     try {
         const userData = await User.findOne({
@@ -81,21 +87,17 @@ router.get('/:username', async (req, res) => {
         });
 
         if (!userData) {
-            res
-                .status(404)
-                .json({ message: 'Not found' });
+            res.status(404).json({ message: 'Not found' });
             return;
         }
-        res
-            .status(200)
-            .json({ userData });
+        res.status(200).json({ userData });
         return;
     } catch (err) {
-        console.log(err);
         res.status(400).json(err);
     }
 });
 
+// logs out and destroys current session.
 router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
         req.session.destroy(() => {
@@ -105,11 +107,5 @@ router.post('/logout', (req, res) => {
         res.status(404).end();
     }
 });
-
-
-// router.get('/', async (req, res) => {
-
-//     res.status(200).json("BBBBBBBBB");
-// });
 
 module.exports = router;

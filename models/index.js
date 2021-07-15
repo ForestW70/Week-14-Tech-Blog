@@ -2,6 +2,7 @@ const User = require('./User');
 const BlogPost = require('./BlogPost');
 const Comment = require('./Comment');
 
+// creating associations between our tables to be able to return joined table's data.
 User.hasMany(BlogPost, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'

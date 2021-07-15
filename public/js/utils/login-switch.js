@@ -26,3 +26,6 @@ const displayCreateAct = () => {
 
 logInDisplay.addEventListener('click', displayLogin);
 createActDisplay.addEventListener('click', displayCreateAct);
+
+// this script handles user's being able to switch between log in, and create an account.
+// also decides whether to show the redirect message, or nothing.

@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, BlogPost, Comment } = require('../../models');
 const withAuth = require('../../public/js/utils/auth');
 
-
+// gets body from new post screen, adds it to DB.
 router.post('/new-post', async (req, res) => {
     try {
         const newPost = await BlogPost.create({
@@ -13,10 +13,11 @@ router.post('/new-post', async (req, res) => {
         });
         res.status(200).json("new post created!");
     } catch (err) {
-        res.status(401).json(err);
+        res.status(400).json(err);
     }
 })
 
+// gets body from comment page, adds it to DB.
 router.post('/new-comment', async (req, res) => {
     if (!req.session.logged_in) {
         res.status(401).json("not logged in");
@@ -35,6 +36,7 @@ router.post('/new-comment', async (req, res) => {
     }
 })
 
+// deletes selected post.
 router.delete('/delete/:id', async (req, res) => {
     try {
         const post = await BlogPost.findByPk(req.params.id)

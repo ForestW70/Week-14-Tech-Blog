@@ -25,3 +25,5 @@ const seedDatabase = async () => {
 
 seedDatabase();
 
+// for local testing
+

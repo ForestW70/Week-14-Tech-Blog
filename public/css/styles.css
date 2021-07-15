@@ -1,3 +1,5 @@
+/* sorry bit of a mess */
+
 .hide {
     display: none;
 }
@@ -14,7 +16,7 @@ header {
 
 .head-text {
     text-align: center;
-    font-size: 8em;
+    font-size: 6em;
     margin: 0;
 }
 
@@ -86,7 +88,7 @@ ul {
     margin: 0 10px;
 }
 
-
+/* styles for selected tab. */
 .cur-tab::before {
     content: "{";
     font-size: 28px;
@@ -195,7 +197,6 @@ article {
 }
 
 .post-body {
-    /* margin: 15px 20px; */
     background-color: rgb(208, 255, 208);
     padding: 30px;
     border-radius: 5px;
@@ -220,4 +221,15 @@ article {
     padding: 5px 20px;
 }
 
+@media screen and (max-width: 900px) {
+    .post-head {
+        display: grid;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .nav-el {
+        font-size: 3vmax;
+    }
+}
 

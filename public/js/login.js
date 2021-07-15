@@ -40,7 +40,7 @@ const createUserFormHandler = async (event) => {
         return;
     }
 
-
+    // first see if user exists, and if they dont (404), fetch create user route.
     try {
         const res = await fetch('/api/users/' + username);
         if (res.status === 404) {

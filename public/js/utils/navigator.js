@@ -8,6 +8,7 @@ const switchTabStyle = () => {
         })
     }
     
+    // find current tab.
     const path = window.location.href
     let tab = path.split('/')[3];
     
@@ -30,3 +31,5 @@ const switchTabStyle = () => {
 }
 
 switchTabStyle();
+
+// this script allows me to change the style of the tab that you are currently on. 

@@ -1,5 +1,6 @@
 
 const postComment = async () => {
+    // grabs user ID from handlebars.
     const userInfo = document.getElementById('grabUid').innerText
     const post_id = userInfo.split(' ')[2];
     const comment_body = document.getElementById('commentBody').value.trim();
