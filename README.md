@@ -1,4 +1,4 @@
-# Forest Wilson - Homework 13 - E-commerce backend
+# Forest Wilson - Homework 14 - Tech Blog
 MIT - ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)(https://opensource.org/licenses/MIT) - For Good.
 
 ## Table of Contents:
