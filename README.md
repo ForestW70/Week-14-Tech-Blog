@@ -89,5 +89,5 @@ MIT - ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)(https
 
 
 * Links:
-  [Repo page](https://github.com/ForestW70/hw14techblog)
+  [Repo page](https://github.com/ForestW70/Week-14-Tech-Blog)
   [Live site](https://techblog3456.herokuapp.com/home)
